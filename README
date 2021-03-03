@@ -1,0 +1,5 @@
+Olga S. Kleptsova, Henk A. Dijkstra and the SCENES Team
+
+These directories contain some Matlab (R2019b) scripts for plotting/analysing the processed model output.
+
+Matlab scripts can be found in the directory 'Program'. Processed model output can be found in the directory 'Data'. The model output are stored as NETCDF files.
