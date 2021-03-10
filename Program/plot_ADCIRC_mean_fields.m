@@ -1,7 +1,30 @@
 
-ncfile='../Data/ADCRIC_mean_fields.nc';
+ncfile='../Data/Grid/ADCRIC_grid_nodes.nc';
 info=ncinfo(ncfile);
+for var={info.Variables.Name}
+assignin('base',var{1},ncread(ncfile,var{1}));
+end
 
+ncfile='../Data/Grid/ADCRIC_grid_connectivity.nc';
+info=ncinfo(ncfile);
+for var={info.Variables.Name}
+assignin('base',var{1},ncread(ncfile,var{1}));
+end
+
+ncfile='../Data/Mean_fields/ADCRIC_MSL.nc';
+info=ncinfo(ncfile);
+for var={info.Variables.Name}
+assignin('base',var{1},ncread(ncfile,var{1}));
+end
+
+ncfile='../Data/Mean_fields/ADCRIC_MTR.nc';
+info=ncinfo(ncfile);
+for var={info.Variables.Name}
+assignin('base',var{1},ncread(ncfile,var{1}));
+end
+
+ncfile='../Data/Mean_fields/ADCRIC_SWH.nc';
+info=ncinfo(ncfile);
 for var={info.Variables.Name}
 assignin('base',var{1},ncread(ncfile,var{1}));
 end
@@ -32,7 +55,7 @@ ax.FontSize=12;
 ax.FontWeight='b';
 ylabel('degrees latitude')
 xlabel('degrees longitude')
-
+grid on
 
 colormap(flipud(roma))
 
@@ -60,6 +83,7 @@ ax.FontSize=12;
 ax.FontWeight='b';
 ylabel('degrees latitude')
 xlabel('degrees longitude')
+grid on
 
 colormap(flipud(roma))
 
@@ -87,7 +111,7 @@ ax.FontSize=12;
 ax.FontWeight='b';
 ylabel('degrees latitude')
 xlabel('degrees longitude')
-
+grid on
 
 colormap(flipud(roma))
 
@@ -114,6 +138,7 @@ ax.FontSize=12;
 ax.FontWeight='b';
 ylabel('degrees latitude')
 xlabel('degrees longitude')
+grid on
 
 colormap(flipud(roma))
 
@@ -127,9 +152,8 @@ axis([  -89.9225  -56.3525    7.7063   25.4238])
 axis equal
 axis([  -89.9225  -56.3525    7.7063   25.4238])
 
-caxis([0,3]);
-c=colorbar;
-% c.Ticks=0:20:120;
+caxis([0,2.5]);
+colorbar;
 
 title('2017 mean significant wave height (m)');
 
@@ -141,7 +165,7 @@ ax.FontSize=12;
 ax.FontWeight='b';
 ylabel('degrees latitude')
 xlabel('degrees longitude')
-
+grid on
 
 colormap(flipud(roma))
 
@@ -156,7 +180,7 @@ axis equal
 axis([  -89.9225  -56.3525    7.7063   25.4238])
 
 caxis([-1.25,1.25]);
-c=colorbar;
+colorbar
 
 title('2100 - 2017 difference in mean SWH (m)');
 
@@ -168,5 +192,6 @@ ax.FontSize=12;
 ax.FontWeight='b';
 ylabel('degrees latitude')
 xlabel('degrees longitude')
+grid on
 
 colormap(flipud(roma))
